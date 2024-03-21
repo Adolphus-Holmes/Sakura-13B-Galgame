@@ -25,7 +25,7 @@ def get_prompt(input, model_name:str, model_version:str, model_quant:str=None):
         prompt = "<reserved_106>将下面的日文文本翻译成中文：" + input + "<reserved_107>"
         return prompt
     if "0.9" in model_version:
-        prompt = f"<|im_start|>system\n你是一个轻小说翻译模型，可以流畅通顺地以日本轻小说的风格将日文翻译成简体中文，并联系上下文正确使用人称代词，不擅自添加原文中没有的代词。<|im_end|>\n<|im_start|>user\n将下面的日文文本翻译成中文：{input}<|im_end|>\n<|im_start|>assistant\n"
+        prompt = f"<|im_start|>system\n你是一个轻小说翻译模型，可以流畅通顺地以日本轻小说的风格将日文翻译成简体中文，并联系上下文正确使用人称代词，不擅自添加原文中没有的代词，不一直重复拟声词。<|im_end|>\n<|im_start|>user\n将下面的日文文本翻译成中文：{input}<|im_end|>\n<|im_start|>assistant\n"
         return prompt
     if model_version == '0.7':
         prompt = f"<|im_start|>user\n将下面的日文文本翻译成中文：{input}<|im_end|>\n<|im_start|>assistant\n"
